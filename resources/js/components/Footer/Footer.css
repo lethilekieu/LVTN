@@ -1,0 +1,40 @@
+.kv-shop span{
+    color: gold;
+    font-size: 30px;
+    font-weight: bold;
+}
+.kv-shop p{
+    font-size: 18px;
+}
+h2{
+    text-align: center;
+}
+.links a{
+    font-size: 30px;
+    background-color:#3B579D;
+    color: mintcream;
+}
+.links{
+    text-align: center;
+    font-weight: bold;
+}
+.help a{
+    color: white;
+    font-size: 20px;
+}
+
+.profile span{
+    color: gold;
+    font-size: 30px;
+    font-weight: bold;
+}
+.profile a{
+    color: white;
+    font-size: 20px;
+}
+
+.footer{
+    background-color:#110000;
+    color: white;
+    padding: 50px 0px 50px 0px;
+}

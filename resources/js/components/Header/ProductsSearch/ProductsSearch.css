@@ -1,0 +1,24 @@
+h4{
+    font-weight: bold;
+}
+/* h5{
+    font-weight: bold;
+} */
+/* .unit-price h5{
+    font-weight: none;
+} */
+p{
+    font-size: 16px;
+    font-weight: bold;
+}
+.product{
+    text-align: center; 
+}
+.iconstar{
+    color: yellow;
+    font-size: 20px;
+}
+.inline-price h6{
+    display: inline-block;
+    font-weight: bold;
+}

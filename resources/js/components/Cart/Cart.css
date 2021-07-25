@@ -1,0 +1,90 @@
+.cartpage {
+  border: 1px solid #ddd;
+  overflow: hidden;
+  padding: 10px;
+}
+.cartpage h2 {
+  border-bottom: 1px solid #ddd;
+  font-size: 30px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+.tblone {
+  border: 1px solid #fff;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.tblone th {
+  background: #602D8D  none repeat scroll 0 0;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 8px;
+  text-align: center;
+}
+.tblone td{
+	padding:10px;text-align:left;}
+
+table.tblone tr:nth-child(2n+1){background:#fff;height:30px;}
+table.tblone tr:nth-child(2n){background:#f6f5f5;height:30px;}
+table.tblone input[type="number"] {
+  border: 1px solid #ddd;
+  padding: 2px;
+  width: 60px;
+}
+table.tblone input[type="submit"] {
+  background: #333 none repeat scroll 0 0;
+  border: 1px solid #000;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 1px 5px;
+}
+table.tblone a {
+  color: #602D8D;
+  font-weight: bold;
+  text-decoration: none;
+}
+table.tblone a:hover{color: #000;}
+table.tblone img {
+    height: 70px;
+    width: 80px;
+}
+.shopleft a {
+  padding: 10px;
+
+  background: #602D8D;
+  color: #fff;
+}
+.shopright a
+{
+  padding: 10px;
+
+  background: #602D8D;
+  color: #fff;
+}
+.content{
+	padding:20px 0;
+	background:#FFF;
+}
+.content h2{ 
+	font-size:40px;
+	color:#333;
+	font-family: 'Monda', sans-serif;
+}
+.shopleft, .shopleft {
+  float: left;
+  text-align: center;
+  width: 610px;
+}
+.shopleft img{outline:none}
+.shopleft a,.shopright a{outline:none}
+.shopleft a:hover,.shopright a:hover{color:#fff}
+.shopright img {
+  width: 270px;
+  outline:none
+}
+.shopping{
+  overflow: hidden;
+  padding: 10px;
+}
