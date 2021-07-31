@@ -1,0 +1,9 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+.rating__comment {
+    width: 50%;
+    text-align: center;
+}
+.rating__results {
+    text-align: center;
+}

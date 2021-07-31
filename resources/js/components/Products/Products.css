@@ -1,4 +1,4 @@
-h4{
+h4 {
     font-weight: bold;
 }
 /* h5{
@@ -7,18 +7,43 @@ h4{
 /* .unit-price h5{
     font-weight: none;
 } */
-p{
+p {
     font-size: 16px;
     font-weight: bold;
 }
-.product{
-    text-align: center; 
+.product {
+    text-align: center;
 }
-.iconstar{
+.iconstar {
     color: yellow;
     font-size: 20px;
 }
-.inline-price h6{
+.inline-price h6 {
     display: inline-block;
     font-weight: bold;
+}
+.product .rate > label {
+    font-size: 16px;
+}
+.product .rate .no-star {
+    display: none;
+}
+.product .rate .rating__results {
+    display: none;
+}
+.product .rate > label.active {
+    color: #ffd700;
+}
+.product .rate .rating__text {
+    font-size: 14px;
+}
+.product .inline-price {
+    display: flex;
+    justify-content: center;
+}
+.product .inline-price h6 {
+    font-size: 13px;
+}
+.product .card-body {
+    padding: 10px;
 }

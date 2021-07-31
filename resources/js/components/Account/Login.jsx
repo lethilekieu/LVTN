@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Button, Form, Input } from 'reactstrap';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Button, Form, Input } from "reactstrap";
 
 export default class Login extends Component {
     constructor(props) {
@@ -49,7 +49,7 @@ export default class Login extends Component {
             this.onLogin();
         }
     }
-    
+
     render() {
         return (
             <div className="container">
@@ -69,7 +69,7 @@ export default class Login extends Component {
                                         </div>
                                         <Form className="user">
                                             <div className="form-group">
-                                                <Input type="email" onChange={ this.onHandleChange } className="form-control form-control-user" name="customer_id" id="customer_id" aria-describedby="emailHelp" placeholder="Enter Email Address..." />
+                                                <Input type="email" onChange={ this.onHandleChange } className="form-control form-control-user" name="customer_id" id="customer_id" aria-describedby="emailHelp" placeholder="Enter Username..." />
                                             </div>
                                             <div className="form-group">
                                                 <Input type="password" onChange={this.onHandleChange} onKeyDown={this.onHandleEnter} className="form-control form-control-user" name="customer_password" id="customer_password" placeholder="Password" />
@@ -103,3 +103,4 @@ export default class Login extends Component {
         )
     }
 }
+

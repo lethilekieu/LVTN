@@ -121,7 +121,7 @@ class Details extends React.Component {
       // console.log(this.props.id);
         return (
           <div className="product-details">
-            <div className="row">
+            <div className="row justify-content-center">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <img className="card-img-top" height="350" src={ this.state.product.product_image } alt={this.state.product.product_slug} />
                     

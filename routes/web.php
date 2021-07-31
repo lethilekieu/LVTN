@@ -16,7 +16,10 @@ use App\Http\Controllers\Api\CategoriesController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/product_details/{id}', function () {
+Route::get('/product-detail/{id}/{slug}', function () {
+    return view('welcome');
+});
+Route::get('/login', function () {
     return view('welcome');
 });
 // Route::get('/order-tracking/{id}', function () {

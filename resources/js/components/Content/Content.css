@@ -1,0 +1,30 @@
+.price_filter .custom-control-inline {
+    margin-right: 0;
+}
+.product__container {
+    margin-top: 20px;
+}
+.order select {
+    padding: 0 10px;
+    outline: none;
+    width: 100%;
+}
+.search_form {
+    margin-bottom: 1rem;
+}
+.header {
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.product__list {
+    min-height: 600px;
+}
+.empty__img {
+    width: 200px;
+}
+.empty__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
