@@ -37,3 +37,13 @@ p {
 .product .rate .rating__text {
     font-size: 14px;
 }
+.product .inline-price {
+    display: flex;
+    justify-content: center;
+}
+.product .inline-price h6 {
+    font-size: 13px;
+}
+.product .card-body {
+    padding: 10px;
+}
