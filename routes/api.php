@@ -94,3 +94,10 @@ Route::resource('wards', 'App\Http\Controllers\WardsController');
 
 //Send Mail
 Route::post('sendmail', 'App\Http\Controllers\SendMailController@sendMail');
+
+// Rating
+Route::post('rating', 'App\Http\Controllers\RatingController@rating');
+Route::get('get-rating-list', 'App\Http\Controllers\RatingController@getRatingList');
+Route::get('admin/rating', 'App\Http\Controllers\RatingController@getRatingListByAdmin');
+Route::post('admin/change-rating-status', 'App\Http\Controllers\RatingController@changeRatingStatus');
+Route::post('admin/delete-rating', 'App\Http\Controllers\RatingController@deleteRating');

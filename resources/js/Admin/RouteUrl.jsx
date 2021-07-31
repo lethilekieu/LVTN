@@ -58,6 +58,7 @@ import EditAdmin from "./components/Content/EditAdmin";
 
 import ShowTblOrder from "./components/Content/ShowTblOrder";
 import ShowTblOrderPDF from './components/Content/ShowTblOrderPDF';
+import RatingManagement from "./components/Content/RatingManagement";
 
 
 class RouteUrl extends React.Component {
@@ -119,6 +120,8 @@ class RouteUrl extends React.Component {
 
                 <Route exact path="/admin/home/tbl-order" component={ShowTblOrder} />
                 <Route exact path="/admin/home/tbl-order-pdf/:id" component={ShowTblOrderPDF} />
+
+                <Route path="/admin/rating" component={RatingManagement}/>
             </Router>
         );
     }

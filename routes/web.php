@@ -31,3 +31,6 @@ Route::get('/admin/', function () {
 Route::get('/admin/home', function () {
     return view('Admin.welcome');
 });
+Route::get('/admin/rating', function () {
+    return view('Admin.welcome');
+});

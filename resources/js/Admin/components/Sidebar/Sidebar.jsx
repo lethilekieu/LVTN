@@ -151,6 +151,18 @@ export default class Sidebar extends Component {
                         </div>
                     </div>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
+                        <FontAwesomeIcon icon={ faFolder } fixedWidth className="mr-2"/>
+                        <span>Quản lý đánh giá</span>
+                    </Link>
+                    <div id="collapsePages1" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div className="bg-white py-2 collapse-inner rounded">
+                            <h6 className="collapse-header">Quản lý đánh giá:</h6>
+                            <Link className="collapse-item" to="/admin/rating">Danh sách đánh giá</Link>
+                        </div>
+                    </div>
+                </li>
                 {
                     this.showSideAdmin()
                 }
