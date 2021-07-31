@@ -1,0 +1,48 @@
+.ratings__list {
+    margin-top: 15px;
+}
+.rating__content p {
+    margin-bottom: 0;
+}
+.rating__content-header {
+    font-size: 16px;
+}
+.rating__content-header .name,
+.rating__content-header .rating {
+    font-weight: 700;
+}
+.rating__content-comment {
+    font-size: 18px;
+    font-style: italic;
+}
+.rating__content-date {
+    font-size: 14px;
+    font-weight: normal;
+}
+.rating__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.rating__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.rating-page-item {
+    border: solid 1px gray;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+.rating-page-item.active{
+    background: gray;
+}
+.rating-page-item.active .rating-page-link{
+    color: #fff;
+}
+.rating-page-item .rating-page-link{
+    color: gray;
+}

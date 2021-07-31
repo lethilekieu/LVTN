@@ -94,3 +94,7 @@ Route::resource('wards', 'App\Http\Controllers\WardsController');
 
 //Send Mail
 Route::post('sendmail', 'App\Http\Controllers\SendMailController@sendMail');
+
+// Rating
+Route::post('rating', 'App\Http\Controllers\RatingController@rating');
+Route::get('get-rating-list', 'App\Http\Controllers\RatingController@getRatingList');

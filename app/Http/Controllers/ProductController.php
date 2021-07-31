@@ -23,9 +23,55 @@ class ProductController extends Controller
         return Product::all();
     }
 
-    public function getPagination()
+    public function getPagination(Request $request)
     {
-        return Product::paginate(3);
+
+        $searchData = json_decode($request->searchData);
+
+        $query = Product::select("product.product_id", "product.product_name", "product.product_quantity", "product.product_slug", 
+                                "product.product_type_id", "product.brand_id", "product.unit", "product.unit_price", 
+                                "product.promotion_price", "product.product_desc", "product.product_content", 
+                                "product.product_image", "product.product_status", "tbl_rating.rating", "tbl_rating.status", "tbl_rating.del_flg");
+        if ($searchData) {
+            if ($searchData->size) {
+                $query->leftJoin("size_detail","product.product_id", "=", "size_detail.product_id")
+                        ->whereIn("size_id", (array)$searchData->size)->groupBy("product.product_id")->distinct();
+            }
+            if ($searchData->minPrice) {
+                $query->where("unit_price", ">=", $searchData->minPrice);
+            }
+            if ($searchData->maxPrice) {
+                $query->where("unit_price", "<=", $searchData->maxPrice);
+            }
+            if ($searchData->keyword) {
+                $query->where("product_name", "LIKE", "%".$searchData->keyword."%");
+            }
+            if ($searchData->type) {
+                $query->leftJoin("product_type","product.product_type_id", "=", "product_type.product_type_id")
+                        ->where("product.product_type_id", "=", $searchData->type);
+            }
+            if ($searchData->brand) {
+                $query->where('product.brand_id', $searchData->brand);
+            }
+            if ($searchData->orderBy != "default") {
+                if ($searchData->orderBy == "minPrice") {
+                    $query->orderBy("unit_price", "ASC");
+                } 
+                if ($searchData->orderBy == "maxPrice") {
+                    $query->orderBy("unit_price", "DESC");
+                }
+            }
+             else {
+                $query->orderBy("product.created_at", "ASC");
+            }
+        }
+        $query->leftJoin('tbl_rating', 'tbl_rating.product_id', '=', 'product.product_id')
+                ->groupBy('product.product_id');
+
+        $query->addSelect(DB::raw('AVG(rating) as total'))->where('status', 1)->orWhere('status', null)
+                ->where('del_flg', 0)->orWhere('del_flg', null);
+
+        return $query->paginate(3);
     }
 
     // public function show_new(){

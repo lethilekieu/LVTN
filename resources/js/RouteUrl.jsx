@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Register from "./components/Account/Register";
 import Home from "./components/Home/Home";
 import New from "./components/New/New";
@@ -19,32 +16,58 @@ import Introduce from "./components/Introduce/Introduce";
 import Order from "./components/Order/Order";
 import InfoOrder from "./components/Order/InfoOrder";
 import HistoryOrder from "./components/Order/HistoryOrder";
-import Cart from './components/Cart/Cart';
+import Cart from "./components/Cart/Cart";
 
 class RouteUrl extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            brand: [],
+        };
+    }
+    componentDidMount() {
+        axios.get("http://127.0.0.1:8000/api/brand").then((res) => {
+            this.setState({ brand: res.data });
+        });
+    }
     render() {
+        const currentUser = JSON.parse(sessionStorage.getItem("objCustomer"));
+        const {brand} = this.state;
+        console.log(currentUser);
         return (
-            <Router>
-                <div>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/product_details/:id/:slug" component={ProductDetails} />
-                    <Route exact path="/products-new" component={New} />
-                    <Route exact path="/categories/:id" component={Categories} />
-                    <Route exact path="/edit-customer/:id" component={EditCustomer} />
-                    <Route exact path="/register" component={Register} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/search" component={Header} />
-                    <Route exact path="/brand/:id" component={ShowProductBrand} />
-                    <Route exact path="/product-type/:id" component={ShowProductType} />
+            <div>
+                <Switch>
+                    <Route exact path="/" render={() => <Home brand={brand} />} />
+                    <Route
+                        path="/product-detail/:id?/:slug?"
+                        component={ProductDetails}
+                    />
+                    <Route path="/products-new" component={New} />
+                    <Route path="/categories/:id" component={Categories} />
+                    <Route path="/edit-customer/:id" component={EditCustomer} />
+                    <Route path="/register" component={Register} />
+                    <Route
+                        exact
+                        path="/login"
+                        render={() =>
+                            currentUser ? <Redirect to="/" /> : <Login />
+                        }
+                    />
+                    <Route path="/search" component={Header} />
+                    <Route path="/brand/:id" component={ShowProductBrand} />
+                    <Route
+                        path="/product-type/:id"
+                        component={ShowProductType}
+                    />
                     {/* <Route exact path="/categories/:id" component={ProductCategories} /> */}
-                    <Route exact path="/tuyen-dung" component={Recruitment} />
-                    <Route exact path="/gioi-thieu-kvstore" component={Introduce} />
-                    <Route exact path="/cart" component={Cart} />
-                    <Route exact path="/thanh-toan" component={Order} />
-                    <Route exact path="/order-tracking/:id" component={InfoOrder} />
-                    <Route exact path="/history-order/:id" component={HistoryOrder} />
-                </div>
-            </Router>
+                    <Route path="/tuyen-dung" component={Recruitment} />
+                    <Route path="/gioi-thieu-kvstore" component={Introduce} />
+                    <Route path="/cart" component={Cart} />
+                    <Route path="/thanh-toan" component={Order} />
+                    <Route path="/order-tracking/:id" component={InfoOrder} />
+                    <Route path="/history-order/:id" component={HistoryOrder} />
+                </Switch>
+            </div>
         );
     }
 }
