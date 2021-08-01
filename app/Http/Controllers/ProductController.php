@@ -31,7 +31,10 @@ class ProductController extends Controller
         $query = Product::select("product.product_id", "product.product_name", "product.product_quantity", "product.product_slug", 
                                 "product.product_type_id", "product.brand_id", "product.unit", "product.unit_price", 
                                 "product.promotion_price", "product.product_desc", "product.product_content", 
-                                "product.product_image", "product.product_status", "tbl_rating.rating", "tbl_rating.status", "tbl_rating.del_flg");
+                                "product.product_image", "product.product_status", "rating.total");
+        $query->leftJoin(DB::raw('(select tbl_rating.product_id, AVG(tbl_rating.rating) as total from tbl_rating WHERE (tbl_rating.status = 1 or tbl_rating.status is null)) as rating') ,
+                            'product.product_id', '=', 'rating.product_id')->groupBy('product.product_id');
+
         if ($searchData) {
             if ($searchData->size) {
                 $query->leftJoin("size_detail","product.product_id", "=", "size_detail.product_id")
@@ -44,7 +47,8 @@ class ProductController extends Controller
                 $query->where("unit_price", "<=", $searchData->maxPrice);
             }
             if ($searchData->keyword) {
-                $query->where("product_name", "LIKE", "%".$searchData->keyword."%");
+                // $query->where("product_name", "=", "quan");
+                $query->where("product.product_name", "LIKE", "%".$searchData->keyword."%");
             }
             if ($searchData->type) {
                 $query->leftJoin("product_type","product.product_type_id", "=", "product_type.product_type_id")
@@ -65,12 +69,6 @@ class ProductController extends Controller
                 $query->orderBy("product.created_at", "ASC");
             }
         }
-        $query->leftJoin('tbl_rating', 'tbl_rating.product_id', '=', 'product.product_id')
-                ->groupBy('product.product_id');
-
-        $query->addSelect(DB::raw('AVG(rating) as total'))->where('status', 1)->orWhere('status', null)
-                ->where('del_flg', 0)->orWhere('del_flg', null);
-
         return $query->paginate(3);
     }
 

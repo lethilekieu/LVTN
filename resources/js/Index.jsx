@@ -8,9 +8,11 @@ function Index() {
 
 export default Index;
 
-ReactDOM.render(
-    <BrowserRouter>
-        <Index />
-    </BrowserRouter>,
-    document.getElementById("app")
-);
+if (document.getElementById("app")) {
+    ReactDOM.render(
+        <BrowserRouter>
+            <Index />
+        </BrowserRouter>,
+        document.getElementById("app")
+    );
+}
