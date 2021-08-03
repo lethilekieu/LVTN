@@ -99,6 +99,8 @@ class RatingController extends Controller
         $query = Rating::select("tbl_rating.rating", "tbl_rating.comment", "tbl_rating.created_at", "c.customer_name")
                         ->leftJoin('customer as c', 'c.customer_id', '=', 'tbl_rating.customer_id')
                         ->where('tbl_rating.product_id', $data->product_id)
+                        ->where('tbl_rating.status', 1)
+                        ->where('tbl_rating.del_flg', 0)
                         ->groupBy('tbl_rating.product_id');
 
         $ratings = $query->paginate(10);
